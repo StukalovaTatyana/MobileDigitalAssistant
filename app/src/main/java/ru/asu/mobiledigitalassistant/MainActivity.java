@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,6 +21,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import ru.asu.mobiledigitalassistant.network.NetworkService;
+import ru.asu.mobiledigitalassistant.pojo.Post;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        addListenerOnButton();
     }
 
     @Override
@@ -65,5 +73,37 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+
+    public void addListenerOnButton() {
+        FloatingActionButton fab =(FloatingActionButton)findViewById(R.id.fab);
+        fab.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        /*Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+                        startActivity(intent);*/
+                        NetworkService.getInstance()
+                                .getJSONApi()
+                                .getPostWithId()
+                                .enqueue(new Callback<Post>() {
+                                    @Override
+                                    public void onResponse(@NonNull Call<Post> call, @NonNull Response<Post> response) {
+                                        Post post = response.body();
+                                        System.out.println(post.getBody() + "\n");
+                                    }
+
+                                    @Override
+                                    public void onFailure(@NonNull Call<Post> call, @NonNull Throwable t) {
+
+                                       System.out.println("Error occurred while getting request!");
+                                        t.printStackTrace();
+                                    }
+                                });
+
+                    }
+                }
+        );
     }
 }

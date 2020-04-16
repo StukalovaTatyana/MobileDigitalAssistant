@@ -1,5 +1,6 @@
 package ru.asu.mobiledigitalassistant;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -7,7 +8,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,12 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import ru.asu.mobiledigitalassistant.network.NetworkService;
-import ru.asu.mobiledigitalassistant.pojo.Post;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -82,25 +76,27 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        /*Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-                        startActivity(intent);*/
+                        Intent intent = new Intent(MainActivity.this, BotActivity.class);
+                        startActivity(intent);
+                        /*BotQuestion request = new BotQuestion();
+                        request.setMessage("привет");
                         NetworkService.getInstance()
-                                .getJSONApi()
-                                .getPostWithId()
-                                .enqueue(new Callback<Post>() {
+                                .getVdaApi()
+                                .askBot(request)
+                                .enqueue(new Callback<BotQuestion>() {
                                     @Override
-                                    public void onResponse(@NonNull Call<Post> call, @NonNull Response<Post> response) {
-                                        Post post = response.body();
-                                        System.out.println(post.getBody() + "\n");
+                                    public void onResponse(@NonNull Call<BotQuestion> call, @NonNull Response<BotQuestion> response) {
+                                        BotQuestion botQuestion = response.body();
+                                        System.out.println(botQuestion.getMessage() + "\n");
                                     }
 
                                     @Override
-                                    public void onFailure(@NonNull Call<Post> call, @NonNull Throwable t) {
+                                    public void onFailure(@NonNull Call<BotQuestion> call, @NonNull Throwable t) {
 
                                        System.out.println("Error occurred while getting request!");
                                         t.printStackTrace();
                                     }
-                                });
+                                });*/
 
                     }
                 }

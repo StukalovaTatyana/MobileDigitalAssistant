@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetworkService {
     private static NetworkService mInstance;
-    private static final String BASE_URL = "https://cleoapp.herokuapp.com/";
+    private static final String BASE_URL = "https://vda-university.herokuapp.com/";
     private Retrofit mRetrofit;
 
     private NetworkService() {
@@ -24,7 +24,7 @@ public class NetworkService {
         return mInstance;
     }
 
-    public JSONPlaceHolderApi getJSONApi(){
-        return mRetrofit.create(JSONPlaceHolderApi.class);
+    public VdaApi getVdaApi(){
+        return mRetrofit.create(VdaApi.class);
     }
 }

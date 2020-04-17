@@ -22,7 +22,6 @@ import ru.asu.mobiledigitalassistant.pojo.User;
 
 public class ChatActivity extends AppCompatActivity {
 
-    private final String CURRENT_USER = UUID.randomUUID().toString();
     private MessageInput messageInput;
     private MessagesList messagesList;
     MessagesListAdapter<MessageWrapper> adapter;

@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, BotActivity.class);
+                        Intent intent = new Intent(MainActivity.this, ChatActivity.class);
                         startActivity(intent);
                         /*BotQuestion request = new BotQuestion();
                         request.setMessage("привет");

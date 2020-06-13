@@ -19,6 +19,5 @@ public final class DbContract{
         public static final String COLUMN_NAME_SENDER = "sender";
         public static final String COLUMN_NAME_TEXT = "text";
         public static final String COLUMN_NAME_TIME = "time";
-
     }
 }

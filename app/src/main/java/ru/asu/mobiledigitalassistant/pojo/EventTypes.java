@@ -27,4 +27,9 @@ public class EventTypes {
     public void setNameEventType(String nameEventType) {
         this.nameEventType = nameEventType;
     }
+
+    @Override
+    public String toString() {
+        return nameEventType;
+    }
 }

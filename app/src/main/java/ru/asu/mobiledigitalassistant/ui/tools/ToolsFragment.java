@@ -1,10 +1,10 @@
 package ru.asu.mobiledigitalassistant.ui.tools;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +12,7 @@ import androidx.fragment.app.ListFragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import ru.asu.mobiledigitalassistant.pojo.EventTypes;
+import ru.asu.mobiledigitalassistant.ui.events.EventsListActivity;
 
 public class ToolsFragment extends ListFragment {
 
@@ -36,6 +37,9 @@ public class ToolsFragment extends ListFragment {
     @Override
     public void onListItemClick(@NonNull ListView l, @NonNull View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Toast.makeText(getContext(), l.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
+        EventTypes eventType = (EventTypes) l.getItemAtPosition(position);
+        Intent intent = new Intent(getContext(), EventsListActivity.class);
+        intent.putExtra("id", eventType.getId());
+        startActivity(intent);
     }
 }

@@ -73,32 +73,9 @@ public class MainActivity extends AppCompatActivity {
     public void addListenerOnButton() {
         FloatingActionButton fab =(FloatingActionButton)findViewById(R.id.fab);
         fab.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-                        startActivity(intent);
-                        /*BotQuestion request = new BotQuestion();
-                        request.setMessage("привет");
-                        NetworkService.getInstance()
-                                .getVdaApi()
-                                .askBot(request)
-                                .enqueue(new Callback<BotQuestion>() {
-                                    @Override
-                                    public void onResponse(@NonNull Call<BotQuestion> call, @NonNull Response<BotQuestion> response) {
-                                        BotQuestion botQuestion = response.body();
-                                        System.out.println(botQuestion.getMessage() + "\n");
-                                    }
-
-                                    @Override
-                                    public void onFailure(@NonNull Call<BotQuestion> call, @NonNull Throwable t) {
-
-                                       System.out.println("Error occurred while getting request!");
-                                        t.printStackTrace();
-                                    }
-                                });*/
-
-                    }
+                v -> {
+                    Intent intent = new Intent(MainActivity.this, ChatActivity.class);
+                    startActivity(intent);
                 }
         );
     }

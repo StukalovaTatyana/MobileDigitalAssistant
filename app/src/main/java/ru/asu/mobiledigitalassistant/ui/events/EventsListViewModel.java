@@ -1,30 +1,33 @@
-package ru.asu.mobiledigitalassistant.ui.tools;
+package ru.asu.mobiledigitalassistant.ui.events;
 
 import androidx.lifecycle.ViewModel;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import retrofit2.Response;
 import ru.asu.mobiledigitalassistant.network.NetworkService;
+import ru.asu.mobiledigitalassistant.pojo.Event;
 import ru.asu.mobiledigitalassistant.pojo.EventTypes;
 
-public class ToolsViewModel extends ViewModel {
-
-    public ToolsViewModel() {
+public class EventsListViewModel extends ViewModel {
+    // TODO: Implement the ViewModel
+    public EventsListViewModel(){
     }
 
-    public List<EventTypes> getEventTypes() {
-        CompletableFuture<List<EventTypes>> future = CompletableFuture.supplyAsync(() -> {
+
+    public List<Event> getEventType(int id) {
+        CompletableFuture<List<Event>> future = CompletableFuture.supplyAsync(() -> {
             try {
-                Response<List<EventTypes>> execute = NetworkService.getInstance()
+                Response<EventTypes> execute = NetworkService.getInstance()
                         .getVdaApi()
-                        .getEventTypes()
+                        .getEventType(id)
                         .execute();
-                return execute.body();
+                return execute.body().getEvents();
             } catch (IOException e) {
                 e.printStackTrace();
                 return new ArrayList<>();
@@ -37,6 +40,4 @@ public class ToolsViewModel extends ViewModel {
             return new ArrayList<>();
         }
     }
-
-
 }

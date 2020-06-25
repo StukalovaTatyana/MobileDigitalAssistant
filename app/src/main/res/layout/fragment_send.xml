@@ -16,4 +16,66 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/insta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="2"
+        android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_send"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="https://www.instagram.com/agu_astrakhan30/?hl=ru" />
+
+    <TextView
+        android:id="@+id/vk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="2"
+        android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/insta"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="https://vk.com/asu_edu_ru" />
+
+
+    <TextView
+        android:id="@+id/offSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="2"
+        android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vk"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="https://vk.com/asu_edu_ru" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

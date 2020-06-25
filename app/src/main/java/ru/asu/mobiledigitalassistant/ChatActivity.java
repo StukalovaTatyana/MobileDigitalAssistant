@@ -1,12 +1,14 @@
 package ru.asu.mobiledigitalassistant;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.stfalcon.chatkit.commons.models.IUser;
 import com.stfalcon.chatkit.messages.MessageInput;
@@ -43,6 +45,9 @@ public class ChatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         messageInput = findViewById(R.id.input);
         messagesList = findViewById(R.id.messagesList);
@@ -60,6 +65,17 @@ public class ChatActivity extends AppCompatActivity {
         dbHelper = new DbHelper(getBaseContext());
         simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
         getPreviousMessages();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private void sendMessage(String message) {

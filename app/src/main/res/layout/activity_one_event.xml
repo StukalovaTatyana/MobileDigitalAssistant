@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.oneevent.OneEventActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarOneEvent"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
+        <TextView
+            android:id="@+id/toolbarOneEventTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/event"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+            android:visibility="visible" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/nameEventTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="2"
+        android:text="Название мероприятия"
+        android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/eventDescriptionTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarOneEvent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/eventDescriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="2"
+        android:text="Описание"
+        android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nameEventTextView"
+        app:layout_constraintBottom_toTopOf="@id/dateBeginEndTextView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/dateBeginEndTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="2"
+        android:text="Дата начала - конца"
+        android:textAppearance="@android:style/TextAppearance.Widget.TextView"
+        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/eventDescriptionTextView"
+        app:layout_constraintBottom_toTopOf="@id/buttonEvent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"/>
+
+    <Button
+        android:id="@+id/buttonEvent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:ellipsize="middle"
+        android:text="Записаться"
+        android:textAppearance="@android:style/TextAppearance.Material.Widget.ActionBar.Title.Inverse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateBeginEndTextView"
+        app:layout_constraintBottom_toTopOf="@id/buttonEvent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+

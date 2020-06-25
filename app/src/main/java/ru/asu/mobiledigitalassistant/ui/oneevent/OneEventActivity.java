@@ -1,6 +1,7 @@
 package ru.asu.mobiledigitalassistant.ui.oneevent;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
@@ -20,6 +21,7 @@ public class OneEventActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setTitle("Мероприятие");
 
 
         TextView nameEvent = findViewById(R.id.nameEventTextView);
@@ -29,5 +31,16 @@ public class OneEventActivity extends AppCompatActivity {
         nameEvent.setText(getIntent().getStringExtra("name"));
         eventDescription.setText(getIntent().getStringExtra("description"));
         dateBeginEnd.setText(MessageFormat.format("Дата проведения: {0}  -  {1}", getIntent().getStringExtra("dateBegin"), getIntent().getStringExtra("dateEnd")));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

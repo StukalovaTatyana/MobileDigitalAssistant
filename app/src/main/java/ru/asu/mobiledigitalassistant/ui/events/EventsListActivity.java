@@ -28,6 +28,8 @@ public class EventsListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_list);
         Toolbar toolbar = findViewById(R.id.toolbarEvents);
+        toolbar.setNavigationIcon(R.drawable.ic_action_back);
+        toolbar.setNavigationOnClickListener(v -> finish());
 
 
         mViewModel = new EventsListViewModel();

@@ -22,6 +22,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
+import ru.asu.mobiledigitalassistant.ui.chat.ChatActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -79,4 +81,5 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
     }
+
 }

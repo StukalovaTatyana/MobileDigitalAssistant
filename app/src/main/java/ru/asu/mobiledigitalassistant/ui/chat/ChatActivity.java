@@ -1,4 +1,4 @@
-package ru.asu.mobiledigitalassistant;
+package ru.asu.mobiledigitalassistant.ui.chat;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -22,6 +22,7 @@ import java.util.UUID;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.asu.mobiledigitalassistant.R;
 import ru.asu.mobiledigitalassistant.network.NetworkService;
 import ru.asu.mobiledigitalassistant.pojo.BotQuestion;
 import ru.asu.mobiledigitalassistant.pojo.db.DbContract;

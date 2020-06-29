@@ -35,7 +35,7 @@ public class OneEventActivity extends AppCompatActivity {
 
         nameEvent.setText(getIntent().getStringExtra("name"));
         eventDescription.setText(getIntent().getStringExtra("description"));
-        dateBeginEnd.setText(MessageFormat.format("Дата проведения: {0}  -  {1}", getIntent().getStringExtra("dateBegin"), getIntent().getStringExtra("dateEnd")));
+        dateBeginEnd.setText(MessageFormat.format("Дата проведения:  {0}  -  {1}", getIntent().getStringExtra("dateBegin"), getIntent().getStringExtra("dateEnd")));
         addListenerOnButton();
     }
 
@@ -56,6 +56,11 @@ public class OneEventActivity extends AppCompatActivity {
         button.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(OneEventActivity.this, FormRecordingAnEventActivity.class);
+                    intent.putExtra("id", getIntent().getIntExtra("id", 0));
+                    intent.putExtra("name",getIntent().getStringExtra("name"));
+                    intent.putExtra("description",  getIntent().getStringExtra("description"));
+                    intent.putExtra("dateBegin", getIntent().getStringExtra("dateBegin"));
+                    intent.putExtra("dateEnd",  getIntent().getStringExtra("dateEnd"));
                     startActivity(intent);
                 }
         );

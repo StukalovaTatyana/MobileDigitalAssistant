@@ -8,7 +8,7 @@ import java.util.Date;
 public class Event {
     @SerializedName("id")
     @Expose
-    private int id;
+    private Integer id;
 
     @SerializedName("nameEvent")
     @Expose
@@ -30,11 +30,11 @@ public class Event {
     @Expose
     private Client client;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

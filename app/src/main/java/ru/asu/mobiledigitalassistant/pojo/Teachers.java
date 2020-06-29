@@ -3,7 +3,7 @@ package ru.asu.mobiledigitalassistant.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Client {
+public class Teachers {
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -19,14 +19,6 @@ public class Client {
     @SerializedName("patronymic")
     @Expose
     private String patronymic;
-
-    @SerializedName("phone")
-    @Expose
-    private String phone;
-
-    @SerializedName("group")
-    @Expose
-    private Group group;
 
     public Integer getId() {
         return id;
@@ -60,19 +52,8 @@ public class Client {
         this.patronymic = patronymic;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
+    @Override
+    public String toString() {
+        return surname + ' ' + name + ' ' + patronymic;
     }
 }
